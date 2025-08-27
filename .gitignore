@@ -1,0 +1,18 @@
+.ammonite/
+metals.sbt
+.metals/
+metals/project/
+dist/*
+target/
+lib _managed/
+src_managed/
+project/boot/
+project/plugins/project/
+project/
+.cache
+.lib/
+**/.bloop
+.bsp/
+*.class
+node_modules/
+package-lock.json
