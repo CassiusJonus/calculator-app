@@ -17,14 +17,9 @@ lazy val parserDeps = Seq(
 lazy val root = project
   .in(file("."))
   .settings(
-    scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature"),
-    mainClass := Some("io.github.cassius.jonus.calculator.Main"),
-    scalaJSUseMainModuleInitializer := true,
-    scalaJSLinkerConfig ~= {
-      _.withModuleKind(ModuleKind.ESModule)
-    }
+    scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature")
   )
-  .aggregate(core, `core-impl`, parser, scalajs, main)
+  .aggregate(core, `core-impl`, parser, terminal, main)
 
 lazy val core = project
   .in(file("-01-core"))
@@ -43,19 +38,12 @@ lazy val `core-impl` = project
   .in(file("02-o-core-impl"))
   .dependsOn(parser)
 
-lazy val scalajs = project
-  .in(file("02-i-scalajs"))
-  .enablePlugins(ScalaJSPlugin)
-  .settings(
-    libraryDependencies ++= Seq(
-      "org.scala-js" %%% "scalajs-dom" % "2.8.0",
-      "com.raquo" %%% "laminar" % "17.2.0"
-    )
-  )
+lazy val terminal = project
+  .in(file("02-i-delivery-terminal"))
   .dependsOn(core)
 
 lazy val main = project
   .in(file("03-main"))
   .dependsOn(parser)
   .dependsOn(`core-impl`)
-  .dependsOn(scalajs)
+  .dependsOn(terminal)
