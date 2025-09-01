@@ -28,7 +28,7 @@ lazy val core = project
   )
 
 lazy val parser = project
-  .in(file("02-c-parser-cats-parse"))
+  .in(file("02-u-parser-cats-parse"))
   .settings(
     name := "parser",
     libraryDependencies ++= parserDeps
