@@ -35,13 +35,6 @@ lazy val parser = project
   )
   .dependsOn(core)
 
-lazy val persistence = project
-  .in(file("02-o-persistence-file"))
-  .dependsOn(core)
-  .settings(
-    name := "persistence"
-  )
-
 lazy val `core-impl` = project
   .in(file("02-o-core-impl"))
   .dependsOn(parser)
