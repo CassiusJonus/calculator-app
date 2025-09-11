@@ -4,13 +4,12 @@ ThisBuild / scalaVersion := "3.3.6"
 
 lazy val coreDeps =
   Seq(
-    "org.typelevel" %% "cats-core" % "2.13.0",
+    "org.typelevel" %% "cats-parse" % "1.0.0",
     "org.typelevel" %% "cats-docs" % "2.13.0",
   )
 
 lazy val parserDeps =
   Seq(
-    "org.typelevel" %% "cats-parse" % "1.1.0"
   )
 
 lazy val root =
@@ -20,7 +19,7 @@ lazy val root =
       name := "calculator-app",
       scalacOptions ++= Seq("-encoding", "utf-8", "-deprecation", "-feature"),
     )
-    .aggregate(core, `core-impl`, parser, persistence, terminal, main)
+    .aggregate(core, `core-impl`, parser, terminal, main)
 
 lazy val core =
   project
