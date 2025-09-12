@@ -1,7 +1,7 @@
 package io.github.cassius.jonus.calculator
 package parser
 
-import cats.parse.Rfc5234
+import cats.parse.Rfc5234.*
 import cats.parse.*
 
 /*
